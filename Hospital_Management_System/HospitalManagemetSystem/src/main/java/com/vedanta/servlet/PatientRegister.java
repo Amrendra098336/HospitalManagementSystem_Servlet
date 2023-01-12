@@ -12,41 +12,36 @@ import javax.servlet.http.HttpSession;
 import com.vedanta.dao.PatientRegisteration;
 import com.vedanta.db.DBConnect;
 import com.vedanta.entity.Patient;
-
-
+import com.vedanta.validations.EmailValidation;
 
 @WebServlet("/signup")
-public class PatientRegister extends HttpServlet{
+public class PatientRegister extends HttpServlet {
 
 	public static String patientRegistrationStatus;
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("INSIDE SERVLET");
+		boolean result = false;
 		String firstName = req.getParameter("fname");
 		String lastName = req.getParameter("lname");
-		String email =req.getParameter("email");
-		String password= req.getParameter("password");
-		
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		HttpSession httpSession = req.getSession();
 		Patient patient = new Patient(firstName, lastName, email, password);
 		PatientRegisteration patientRegisteration = new PatientRegisteration(DBConnect.getDbConnection());
-		HttpSession httpSession = req.getSession();
-		boolean result =patientRegisteration.UserRegistration(patient);
-		if(result) {
+		result = patientRegisteration.UserRegistration(patient);
+
+		if (result) {
 			patientRegistrationStatus = "Patient has been added Successfully";
 			httpSession.setAttribute("successMessage", patientRegistrationStatus);
 			resp.sendRedirect("signup.jsp");
-		}else {
+		} else {
 			patientRegistrationStatus = "Patient not added Please contact Admin";
 			httpSession.setAttribute("errorMessage", patientRegistrationStatus);
 			resp.sendRedirect("signup.jsp");
 		}
-		
-		
-		
+
 	}
-	
-	
 
 }

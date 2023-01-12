@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored ="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,6 @@
 <title>Sign up</title>
 <%@include file="component/css.jsp"%>
 <link rel="stylesheet" href="component/style.css">
-
 </head>
 <body>
 	<%@include file="component/navbar.jsp"%>
@@ -20,17 +19,18 @@
 				<div class="card point_card">
 					<div class="card-body">
 						<p class="fs-4 text-center">PATIENT REGISTRATION</p>
-						
+
 						<c:if test="${not empty successMessage }">
-						<p class="text-center text-success fs-3">${successMessage}</p>
-						<c:remove var="successMessage" scope="session"/>
+							<p class="text-center text-success fs-3">${successMessage}</p>
+							<c:remove var="successMessage" scope="session" />
 						</c:if>
-						
+
 						<c:if test="${not empty errorMessage }">
-						<p class="text-center text-success fs-3">${errorMessage}</p>
-						<c:remove var="errorMessage" scope="session"/>
+							<p class="text-center text-success fs-3">${errorMessage}</p>
+							<c:remove var="errorMessage" scope="session" />
 						</c:if>
-						
+						<p id="filed-validation"></p>
+
 						<form action="signup" method="post">
 
 							<div class="mb-3">
@@ -47,8 +47,7 @@
 
 							<div class="mb-3">
 								<label class="form-label">Email Address</label> <input
-									required="required" name="email" type="email"
-									class="form-control">
+									id="email-validation" name="email" type="email" class="form-control">
 							</div>
 
 							<div class="mb-3">
@@ -67,5 +66,6 @@
 	</div>
 
 	<%@include file="component/footer.jsp"%>
+	<script type="text/javascript" src="./javascript/EmailValidation.js"></script>
 </body>
 </html>

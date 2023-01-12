@@ -10,14 +10,18 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class PatientRegisteration {
-	
+
 	private Connection connection;
-	
+
+	public PatientRegisteration(Connection connection) {
+		this.connection = connection;
+	}
+
 	public boolean UserRegistration(Patient patient) {
 		boolean isRegistered = false;
-		
+
 		try {
-			
+
 			PreparedStatement patientInsert = connection.prepareStatement(SqlQueries.PATIENTREGISTER);
 			patientInsert.setString(1, patient.getFirstName());
 			patientInsert.setString(2, patient.getLastName());
@@ -25,14 +29,13 @@ public class PatientRegisteration {
 			patientInsert.setString(4, patient.getPassword());
 
 			int i = patientInsert.executeUpdate();
-			isRegistered = (i==1) ? true : false;
-			
+			isRegistered = (i == 1) ? true : false;
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return isRegistered;
 	}
-	
 
 }

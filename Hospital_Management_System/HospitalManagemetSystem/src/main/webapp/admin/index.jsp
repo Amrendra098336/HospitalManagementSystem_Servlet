@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,10 @@
 </head>
 <body>
 	<%@include file="navbar.jsp"%>
+
+	<c:if test="${empty adminObj}">
+		<c:redirect url="../admin-login.jsp"></c:redirect>
+	</c:if>
 
 	<div class="container p-5">
 		<h3 class="text-center fs-3">Admin Dashboard</h3>
