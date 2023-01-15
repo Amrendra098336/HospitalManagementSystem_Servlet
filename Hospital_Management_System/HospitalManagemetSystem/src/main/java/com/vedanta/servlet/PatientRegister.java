@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import com.vedanta.dao.PatientRegisteration;
 import com.vedanta.db.DBConnect;
 import com.vedanta.entity.Patient;
-import com.vedanta.validations.EmailValidation;
 
 @WebServlet("/signup")
 public class PatientRegister extends HttpServlet {

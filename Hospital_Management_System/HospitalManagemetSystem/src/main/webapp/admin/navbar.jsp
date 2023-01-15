@@ -13,7 +13,7 @@
 
 				<li class="nav-item"><a class="nav-link active" href="HOME.jsp">
 						HOME</a></li>
-				<li class="nav-item"><a class="nav-link active" href="doctor.jsp">
+				<li class="nav-item"><a class="nav-link active" href="doctorinfo.jsp">
 						DOCTOR</a></li>
 				<li class="nav-item"><a class="nav-link active" href="patient.jsp">
 						PATIENT</a></li>
