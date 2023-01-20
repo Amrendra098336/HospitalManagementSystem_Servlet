@@ -23,19 +23,24 @@
 
 	<div class="container-fluid p-3">
 		<div class="row">
+			<c:if test="${not empty successMessage }">
+				<div class="alert alert-success" role="alert">
+					<p class="text-center text-danger fs-3">${successMessage}</p>
+				</div>
+				<c:remove var="successMessage" scope="session" />
+			</c:if>
+
+			<c:if test="${not empty errorMessage }">
+				<div class="alert alert-danger" role="alert">
+					<p class="text-center text-danger fs-3">${errorMessage}</p>
+				</div>
+
+				<c:remove var="errorMessage" scope="session" />
+			</c:if>
 			<div class="col-md-4">
 				<div class="card point-card">
 					<div class="card-body">
 						<p class="fs-3 text-center text-info">ADD DOCTOR</p>
-						<c:if test="${not empty successMessage }">
-							<p class="text-center text-success fs-3">${successMessage}</p>
-							<c:remove var="successMessage" scope="session" />
-						</c:if>
-
-						<c:if test="${not empty errorMessage }">
-							<p class="text-center text-danger fs-3">${errorMessage}</p>
-							<c:remove var="errorMessage" scope="session" />
-						</c:if>
 
 						<form action="../addDoctor" method="post">
 							<div class="mb-3">
@@ -97,19 +102,20 @@
 				</div>
 			</div>
 			<div class="col-md-8">
+
 				<div class="card point-card">
 					<div class="card-body">
 						<p class="fs-3 text-center text-info">DOCTOR DETAILS</p>
 						<table class="table">
 							<thead>
-								<tr>
-									<th scope="col">Full Name</th>
-									<th scope="col">Email</th>
-									<th scope="col">Contact</th>
-									<th scope="col">Qualification</th>
-									<th scope="col">Experience</th>
-									<th scope="col">Specialist</th>
-									<th scope="col">Action</th>
+								<tr class="bg-info text-white mb-3">
+									<th scope="col" class="text-center">Full Name</th>
+									<th scope="col" class="text-center">Email</th>
+									<th scope="col" class="text-center">Contact</th>
+									<th scope="col" class="text-center">Qualification</th>
+									<th scope="col" class="text-center">Experience</th>
+									<th scope="col" class="text-center">Specialist</th>
+									<th scope="col" class="text-center">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -120,16 +126,15 @@
 								%>
 
 								<tr>
-								<td><%= d.getFirstName().concat(" ").concat(d.getLastName()) %></td>
-								<td><%= d.getEmail() %></td>
-								<td><%= d.getPhone()%></td>
-								<td><%= d.getQualification()%></td>
-								<td><%=d.getExperience()%></td>
-								<td><%= d.getSpecialist()%></td>
-								<td>
-								<a href="#" class="btn btn-sm btn-info">Edit</a>
-								<a href="#" class="btn btn-sm btn-Danger">Edit</a>
-								</td>
+									<td class="text-center"><%=d.getFirstName().concat(" ").concat(d.getLastName())%></td>
+									<td class="text-center"><%=d.getEmail()%></td>
+									<td class="text-center"><%=d.getPhone()%></td>
+									<td class="text-center"><%=d.getQualification()%></td>
+									<td class="text-center"><%=d.getExperience()%></td>
+									<td class="text-center"><%=d.getSpecialist()%></td>
+									<td><a href="editDoctor.jsp?id=<%=d.getId()%>"
+										class="btn btn-sm btn-info">Edit </a> <a href="#"
+										class="btn btn-sm btn-Danger">Delete</a></td>
 								</tr>
 								<%
 								}

@@ -15,6 +15,25 @@ public class Doctor {
 
 	public Doctor() {
 	}
+	
+	
+
+	public Doctor(int id, String firstName, String lastName, String email, String phone, String dob,
+			String qualification, int experience, String specialist, String password) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.dob = dob;
+		this.qualification = qualification;
+		this.experience = experience;
+		this.specialist = specialist;
+		this.password = password;
+	}
+
+
 
 	public Doctor(String firstName, String lastName, String email, String phone, String dob, String qualification,
 			int experience, String specialist, String password) {

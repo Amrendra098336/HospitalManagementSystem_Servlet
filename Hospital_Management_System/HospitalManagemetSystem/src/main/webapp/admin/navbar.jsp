@@ -11,21 +11,21 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-				<li class="nav-item"><a class="nav-link active" href="HOME.jsp">
-						HOME</a></li>
-				<li class="nav-item"><a class="nav-link active" href="doctorinfo.jsp">
-						DOCTOR</a></li>
-				<li class="nav-item"><a class="nav-link active" href="patient.jsp">
-						PATIENT</a></li>
+
+				<li class="nav-item"><a class="nav-link active"
+					href="doctorinfo.jsp"> DOCTOR</a></li>
+				<li class="nav-item"><a class="nav-link active"
+					href="patient.jsp"> PATIENT</a></li>
 			</ul>
 
 			<form class="d-flex">
 				<div class="dropdown">
 					<button class="btn btn-light dropdowm-toogle" type="button"
-						id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Admin</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						id="dropdownMenuButton1" data-bs-toggle="dropdown"
+						aria-expanded="false">Admin</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 						<li><a class="dropdown-item" href="../adminLogout">Logout</a></li>
-						</ul>
+					</ul>
 				</div>
 			</form>
 
